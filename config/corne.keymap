@@ -82,6 +82,18 @@
         , <&macro_param_1to1 &macro_param_1to2 &as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>
         ;
     };
+    list_open: list_open {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&kp LBKT &kp SQT>;
+      label = "LIST_OPEN";
+    };
+    list_close: list_close {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&kp SQT &kp LBRC>;
+      label = "LIST_CLOSE";
+    };
   };
 
   behaviors {
@@ -117,14 +129,38 @@
       #binding-cells = <0>;
       bindings = <&caps_word>, <&kp CAPS>;
     };
+    sq_return: sq_return {
+      compatible = "zmk,behavior-tap-dance";
+      label = "SQ_RETURN";
+      #binding-cells = <0>;
+      bindings = <&kp SQT>, <&kp RETURN>;
+    };
+    left_bracket_sq: left_bracket_sq {
+      compatible = "zmk,behavior-tap-dance";
+      label = "LEFT_BRACKET_SQ";
+      #binding-cells = <0>;
+      bindings = <&kp LEFT_BRACKET>, <&list_open>;
+    };
+    right_bracket_sq: right_bracket_sq {
+      compatible = "zmk,behavior-tap-dance";
+      label = "RIGHT_BRACKET_SQ";
+      #binding-cells = <0>;
+      bindings = <&kp RIGHT_BRACKET>, <&list_close>;
+    };
+    cmd_dance: cmd_dance {
+      compatible = "zmk,behavior-tap-dance";
+      label = "CMD_DANCE";
+      #binding-cells = <0>;
+      bindings = <&kp LGUI>, <&sk LA(LEFT_GUI)>, <&sk LS(LA(LEFT_GUI))>;
+    };
   };
 
   conditional_layers {
     compatible = "zmk,conditional-layers";
 
-    tri_layer {
-      if-layers = <1 2>;
-      then-layer = <3>;
+    setting {
+      if-layers = <2 1>;
+      then-layer = <5>;
     };
   };
 
@@ -133,37 +169,41 @@
 
     base {
       bindings = <
-        &kp TAB               &kp Q         &kp W         &kp E        &kp R        &kp T        &kp Y    &kp U        &kp I        &kp O         &kp P            &kp BACKSPACE
-        &mt LEFT_CONTROL ESC  &hml LSHFT A  &hml LCTRL S  &hml LALT D  &hml LCMD F  &kp G        &kp H    &hmr RCMD J  &hmr RALT K  &hmr RCTRL L  &hmr RSHFT SEMI  &kp APOS
-        &kp LSHFT             &kp Z         &kp X         &kp C        &kp V        &kp B        &kp N    &kp M        &kp COMMA    &kp DOT       &kp FSLH         &mt RSHIFT ENTER
-                                                          &kp LGUI     &mo 1        &kp SPACE    &kp RET  &mo 2        &kp RALT
+        &kp TAB               &kp Q  &kp W  &kp E         &kp R         &kp T          &kp Y         &kp U  &kp I      &kp O    &kp P     &kp BACKSPACE
+        &mt LEFT_CONTROL ESC  &kp A  &kp S  &kp D         &kp F         &kp G          &kp H         &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
+        &kp LSHFT             &kp Z  &kp X  &kp C         &kp V         &kp B          &kp N         &kp M  &kp COMMA  &kp DOT  &kp FSLH  &mt RSHIFT ENTER
+                                            &kp LEFT_ALT  &kp LEFT_GUI  &lt 1 SPACE    &lt 2 RETURN  &mo 2  &kp RALT
       >;
     };
 
     raise {
       bindings = <
-        &trans  &kp N1  &kp N2  &kp N3  &kp N4    &kp N5            &kp N6           &kp N7    &kp N8  &kp N9  &kp N0    &trans
-        &trans  &trans  &trans  &trans  &kp LBKT  &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RBKT  &trans  &trans  &kp SEMI  &kp SQT
-        &trans  &trans  &trans  &trans  &trans    &trans            &trans           &trans    &trans  &trans  &trans    &trans
-                                &trans  &trans    &trans            &trans           &trans    &trans
+        &trans  &kp N1     &kp N2     &kp N3  &kp N4    &kp N5      &kp N6    &kp N7           &kp N8    &kp N9     &kp N0    &trans
+        &trans  &kp GRAVE  &kp TILDE  &trans  &kp LBRC  &kp LBKT    &kp RBKT  &kp RIGHT_BRACE  &kp BSLH  &kp MINUS  &kp PLUS  &trans
+        &trans  &trans     &trans     &trans  &trans    &trans      &trans    &trans           &trans    &trans     &trans    &trans
+                                      &trans  &trans    &trans      &trans    &trans           &trans
       >;
+
+      label = "raise";
     };
 
     lower {
       bindings = <
-        &trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6    &kp N7     &kp N8     &kp N9     &kp N0         &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp BACKSPACE  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans    &kp GRAVE  &kp MINUS  &kp EQUAL  &kp BSLH       &trans
-                                &trans  &trans  &trans    &trans    &trans     &trans
+        &trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
+        &trans  &trans           &trans       &trans    &trans      &trans         &kp LEFT   &kp DOWN       &kp UP        &kp RIGHT             &kp BACKSPACE          &trans
+        &trans  &trans           &trans       &trans    &trans      &trans         &trans     &kp GRAVE      &kp MINUS     &kp EQUAL             &kp BSLH               &trans
+                                              &trans    &trans      &trans         &trans     &trans         &trans
       >;
+
+      label = "lower";
     };
 
-    both {
+    fun {
       bindings = <
-        &trans      &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
-        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans      &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                                                &trans        &trans        &trans          &trans  &trans  &trans
+        &trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp F5  &kp F6   &kp F7   &kp F8   &trans    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                                 &trans   &trans   &trans    &trans  &trans  &trans
       >;
     };
 
@@ -173,6 +213,15 @@
         &trans  &as A  &as S  &as D   &as F   &as G     &as H   &as J   &as K   &as L   &trans  &trans
         &trans  &as Z  &as X  &as C   &as V   &as B     &as N   &as M   &trans  &trans  &trans  &trans
                               &trans  &trans  &trans    &trans  &trans  &trans
+      >;
+    };
+
+    setting {
+      bindings = <
+        &trans      &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans      &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                                                &trans        &trans        &trans          &trans  &trans  &trans
       >;
     };
   };
