@@ -152,20 +152,23 @@
       #binding-cells = <0>;
       bindings = <&kp SPACE>, <&sl 1>, <&sl 4>;
     };
+    
     num_word: behavior_num_word {
-        compatible = "zmk,behavior-caps-word";
-        label = "NUM_WORD";
-        #binding-cells = <0>;
-        layers = <NUM>;                                // insert location of numbers layer here
-        continue-list = <BACKSPACE DELETE DOT COMMA>;  // adjust as desired
-        ignore-numbers;                                // numbers don't deactivate the layer
+      compatible = "zmk,behavior-caps-word";
+      label = "NUM_WORD";
+      #binding-cells = <0>;
+      layers = <NUM>;                                // insert location of numbers layer here
+      continue-list = <BACKSPACE DELETE DOT COMMA>;  // adjust as desired
+      ignore-numbers;                                // numbers don't deactivate the layer
     };
     enter_low_num_dance: enter_low_num_dance {
       compatible = "zmk,behavior-tap-dance";
       label = "ENTER_LOW_NUM_DANCE";
       #binding-cells = <0>;
       bindings = <&lt 2 ENTER>, <&num_word>;
+      tapping-term-ms = <100>;
     };
+
     lower_word: behavior_lower_word {
       compatible = "zmk,behavior-caps-word";
       label = "LOWER_WORD";
@@ -179,12 +182,15 @@
       label = "LT_ENTER_LOW_LOW_DANCE";
       #binding-cells = <0>;
       bindings = <&lt 2 ENTER>, <&lower_word>;
+      tapping-term-ms = <100>;
     };
+
     lt_space_raise_cmd_dance: lt_space_raise_cmd_dance {
       compatible = "zmk,behavior-tap-dance";
       label = "LT_SPACE_RAISE_CMD_DANCE";
       #binding-cells = <0>;
       bindings = <&lt 1 SPACE>, <&kp LEFT_GUI>;
+      tapping-term-ms = <100>;
     };
   };
 
