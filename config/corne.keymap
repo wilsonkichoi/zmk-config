@@ -117,6 +117,14 @@
       #binding-cells = <0>;
       bindings = <&sk LEFT_SHIFT>, <&caps_word>;
     };
+    &mwh {
+      compatible = "zmk,behavior-mouse-scroll";
+      label = "MOUSE_SCROLL";
+      #binding-cells = <1>;
+      delay-ms = <0>;
+      time-to-max-speed-ms = <0>;
+      acceleration-exponent = <0>;
+    };
     scroll_3_hold_tap: scroll_3_hold_tap {
       compatible = "zmk,behavior-hold-tap";
       label = "SCROLL_3_HOLD_TAP";
