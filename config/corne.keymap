@@ -11,10 +11,6 @@
   /delete-property/ ignore-modifiers;
 };
 
-&mwh {
-    acceleration-exponent=<1>;
-};
-
 / {
   combos {
     compatible = "zmk,combos";
@@ -124,7 +120,7 @@
     scroll_3_hold_tap: scroll_3_hold_tap {
       compatible = "zmk,behavior-hold-tap";
       label = "SCROLL_3_HOLD_TAP";
-      bindings = <&mwh SCROLL_UP>, <&kp N3>;
+      bindings = <&mwh>, <&kp>;
 
       #binding-cells = <2>;
       tapping-term-ms = <200>;
@@ -154,10 +150,10 @@
 
     raise {
       bindings = <
-        &trans  &kp N1  &kp N2            &scroll_3_hold_tap  &kp N4             &kp N5            &kp N6           &kp N7     &kp N8          &kp N9     &kp N0    &trans
-        &trans  &trans  &mwh SCROLL_LEFT  &mwh SCROLL_DOWN    &mwh SCROLL_RIGHT  &kp LBKT          &kp RBKT         &kp TILDE  &kp UNDERSCORE  &kp PLUS   &kp PIPE  &trans
-        &trans  &trans  &trans            &trans              &trans             &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp GRAVE  &kp MINUS       &kp EQUAL  &kp BSLH  &trans
-                                          &trans              &trans             &trans            &trans           &trans     &trans
+        &trans  &kp N1  &kp N2            &scroll_3_hold_tap SCROLL_UP NUMBER_3  &kp N4             &kp N5            &kp N6           &kp N7     &kp N8          &kp N9     &kp N0    &trans
+        &trans  &trans  &mwh SCROLL_LEFT  &mwh SCROLL_DOWN                       &mwh SCROLL_RIGHT  &kp LBKT          &kp RBKT         &kp TILDE  &kp UNDERSCORE  &kp PLUS   &kp PIPE  &trans
+        &trans  &trans  &trans            &trans                                 &trans             &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp GRAVE  &kp MINUS       &kp EQUAL  &kp BSLH  &trans
+                                          &trans                                 &trans             &trans            &trans           &trans     &trans
       >;
 
       label = "raise";
