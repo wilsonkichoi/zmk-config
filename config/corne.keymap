@@ -42,9 +42,10 @@
       key-positions = <29 30>;
     };
 
-    fun {
-      bindings = <&sl 4>;
-      key-positions = <16 39>;
+    num_backspace {
+      bindings = <&kp BACKSPACE>;
+      key-positions = <40 22>;
+      layers = <3>;
     };
   };
 
