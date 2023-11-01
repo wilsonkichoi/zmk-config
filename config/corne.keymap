@@ -117,7 +117,7 @@
       #binding-cells = <0>;
       bindings = <&sk LEFT_SHIFT>, <&caps_word>;
     };
-    &mwh {
+    mwh: behavior_mouse_scroll {
       compatible = "zmk,behavior-mouse-scroll";
       label = "MOUSE_SCROLL";
       #binding-cells = <1>;
