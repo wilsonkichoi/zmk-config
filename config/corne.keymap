@@ -19,7 +19,7 @@
 };
 
 &num_word {
-  layers = NUM;  // replace NUM by the location of numbers layer
+  layers = <NUM>;  // replace NUM by the location of numbers layer
 };
 
 / {
