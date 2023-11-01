@@ -18,10 +18,6 @@
   /delete-property/ ignore-modifiers;
 };
 
-&num_word {
-  layers = <NUM>;  // replace NUM by the location of numbers layer
-};
-
 / {
   combos {
     compatible = "zmk,combos";
@@ -156,13 +152,21 @@
       #binding-cells = <0>;
       bindings = <&kp SPACE>, <&sl 1>, <&sl 4>;
     };
+    num_word: behavior_num_word {
+        compatible = "zmk,behavior-caps-word";
+        label = "NUM_WORD";
+        #binding-cells = <0>;
+        layers = <NUM>;                                // insert location of numbers layer here
+        continue-list = <BACKSPACE DELETE DOT COMMA>;  // adjust as desired
+        ignore-numbers;                                // numbers don't deactivate the layer
+    };
     enter_low_num_dance: enter_low_num_dance {
       compatible = "zmk,behavior-tap-dance";
       label = "ENTER_LOW_NUM_DANCE";
       #binding-cells = <0>;
       bindings = <&lt 2 ENTER>, <&num_word>;
     };
-    lower_word: behavior_num_word {
+    lower_word: behavior_lower_word {
       compatible = "zmk,behavior-caps-word";
       label = "LOWER_WORD";
       #binding-cells = <0>;
@@ -188,8 +192,8 @@
     compatible = "zmk,conditional-layers";
 
     setting {
-      if-layers = <2 1>;
-      then-layer = <5>;
+      if-layers = <LOWER RAISE>;
+      then-layer = <SETTING>;
     };
   };
 
