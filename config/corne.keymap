@@ -1,6 +1,53 @@
+Source
+Clipboard
+Keyboard
+Corne
+Keymap
+
+ Feedback?
+
+layers
+conditional layers
+combos
+macros
+behaviors
+ ZMK Docs: Combos
+caps_word
+&caps_word
+to_base
+&to
+0
+num_word
+&num_word
+fun
+&mo
+4
+lpar
+&kt
+(
+rparen
+&kt
+)
+lbkt
+&kp
+[
+rbkt
+&kp
+]
+Add New Combo
+Need help? Open an issue:
+/nickcoutsos/keymap-editor
+Keyboard 
+Corne
+Keymap
+Paste the devicetree source from your .keymap file below.
+
+You can technically make changes directly to the DeviceTree code here, but this isn't intended as an editor.
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/keys.h>
 
 // dt-formatter: indent = "  "
@@ -34,7 +81,32 @@
 
     num_word {
       bindings = <&num_word>;
-      key-positions = <16 19>;
+      key-positions = <23 40>;
+    };
+
+    fun {
+      bindings = <&mo 4>;
+      key-positions = <40 35>;
+    };
+
+    lpar {
+      bindings = <&kt LPAR>;
+      key-positions = <16 15>;
+    };
+
+    rparen {
+      bindings = <&kt RPAR>;
+      key-positions = <19 20>;
+    };
+
+    lbkt {
+      bindings = <&kp LBKT>;
+      key-positions = <16 17>;
+    };
+
+    rbkt {
+      bindings = <&kp RBKT>;
+      key-positions = <18 19>;
     };
   };
 
@@ -153,7 +225,7 @@
       label = "NUM_WORD";
       #binding-cells = <0>;
       layers = <NUM>;                                // insert location of numbers layer here
-      continue-list = <BACKSPACE DELETE DOT COMMA QUESTION UNDERSCORE PLUS MINUS SLASH ASTERISK LEFT_SHIFT RIGHT_SHIFT>;  // adjust as desired
+      continue-list = <BACKSPACE DELETE DOT COMMA QUESTION UNDERSCORE PLUS MINUS SLASH ASTERISK LEFT_SHIFT RIGHT_SHIFT EQUAL>;  // adjust as desired
       ignore-numbers;                                // numbers don't deactivate the layer
     };
     num_word_kp: num_word_kp {
@@ -194,7 +266,15 @@
 
       #binding-cells = <0>;
       mods = <(MOD_LGUI)>;
-      keep-mods = <(MOD_RGUI|MOD_LGUI)>;
+      keep-mods = <(MOD_RGUI)>;
+    };
+    dot_question: dot_question {
+      compatible = "zmk,behavior-mod-morph";
+      label = "DOT_QUESTION";
+      bindings = <&kp DOT>, <&kt QUESTION>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT)>;
     };
   };
 
@@ -221,10 +301,10 @@
 
     raise {
       bindings = <
-        &trans            &kp F1        &kp F2                      &scroll_ht SCROLL_UP F3  &kp F4             &f5_tab           &kp F6           &kp F7     &kp F8          &kp F9     &kp F10   &trans
-        &trans            &mt LCMD F11  &scroll_ht SCROLL_LEFT F12  &mwh SCROLL_DOWN         &mwh SCROLL_RIGHT  &gs_rb            &gs_lb           &kp TILDE  &kp UNDERSCORE  &kp PLUS   &kp PIPE  &trans
-        &cmd_ctl_q_dance  &trans        &trans                      &trans                   &trans             &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp GRAVE  &kp MINUS       &kp EQUAL  &kp BSLH  &trans
-                                                                    &trans                   &trans             &trans            &trans           &trans     &trans
+        &trans            &kp F1        &kp F2                      &scroll_ht SCROLL_UP F3  &kp F4                                    &f5_tab           &kp F6           &kp F7     &kp F8          &kp F9     &kp F10   &trans
+        &trans            &mt LCMD F11  &scroll_ht SCROLL_LEFT F12  &mwh SCROLL_DOWN         &scroll_ht SCROLL_RIGHT LEFT_PARENTHESIS  &gs_rb            &gs_lb           &kp TILDE  &kp UNDERSCORE  &kp PLUS   &kp PIPE  &trans
+        &cmd_ctl_q_dance  &trans        &trans                      &trans                   &trans                                    &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp GRAVE  &kp MINUS       &kp EQUAL  &kp BSLH  &trans
+                                                                    &trans                   &trans                                    &trans            &trans           &trans     &trans
       >;
 
       label = "raise";
@@ -233,7 +313,7 @@
     lower {
       bindings = <
         &trans  &kp N1  &kp N2  &kp N3  &kp N4          &kp N5    &kp N6    &kp N7     &kp N8     &kp N9     &kp N0         &trans
-        &trans  &trans  &trans  &trans  &sk LEFT_SHIFT  &trans    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp BACKSPACE  &none
+        &trans  &trans  &trans  &trans  &sk LEFT_SHIFT  &trans    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp BACKSPACE  &kp QUESTION
         &trans  &trans  &trans  &trans  &trans          &trans    &trans    &kp GRAVE  &kp MINUS  &kp EQUAL  &kp BSLH       &trans
                                 &trans  &trans          &trans    &trans    &trans     &trans
       >;
@@ -243,10 +323,10 @@
 
     num {
       bindings = <
-        &trans  &kp N1  &kp N2  &kp N3        &kp N4  &kp N5    &kp N6  &kp N7  &kp N8  &kp N9  &kp N0        &trans
-        &trans  &trans  &trans  &trans        &trans  &trans    &trans  &trans  &trans  &trans  &trans        &trans
-        &trans  &trans  &trans  &kp K_CANCEL  &trans  &trans    &trans  &trans  &trans  &trans  &kp QUESTION  &trans
-                                &trans        &trans  &trans    &trans  &trans  &trans
+        &trans  &kp N1  &kp N2  &kp N3        &kp N4          &kp N5    &kp N6     &kp N7  &kp N8  &kp N9  &kp N0         &trans
+        &trans  &trans  &trans  &trans        &sk LEFT_SHIFT  &trans    &kp PLUS   &kp N4  &kp N5  &kp N6  &trans         &trans
+        &trans  &trans  &trans  &kp K_CANCEL  &trans          &trans    &kp MINUS  &kp N1  &kp N2  &kp N3  &dot_question  &mo 4
+                                &trans        &trans          &trans    &trans     &trans  &trans
       >;
 
       label = "num";
@@ -271,3 +351,5 @@
     };
   };
 };
+
+Set KeymapCancel
