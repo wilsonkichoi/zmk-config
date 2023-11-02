@@ -153,7 +153,7 @@
       label = "NUM_WORD";
       #binding-cells = <0>;
       layers = <NUM>;                                // insert location of numbers layer here
-      continue-list = <BACKSPACE DELETE DOT COMMA QUESTION UNDERSCORE PLUS MINUS SLASH ASTERISK>;  // adjust as desired
+      continue-list = <BACKSPACE DELETE DOT COMMA QUESTION UNDERSCORE PLUS MINUS SLASH ASTERISK LEFT_SHIFT RIGHT_SHIFT>;  // adjust as desired
       ignore-numbers;                                // numbers don't deactivate the layer
     };
     num_word_kp: num_word_kp {
