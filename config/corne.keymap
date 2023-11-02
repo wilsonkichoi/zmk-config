@@ -41,12 +41,6 @@
       bindings = <&num_word>;
       key-positions = <29 30>;
     };
-
-    num_backspace {
-      bindings = <&kp BACKSPACE>;
-      key-positions = <40 22>;
-      layers = <3>;
-    };
   };
 
   macros {
@@ -221,7 +215,7 @@
     cmd_zero: cmd_zero {
       compatible = "zmk,behavior-mod-morph";
       label = "CMD_ZERO";
-      bindings = <&kp N0>, <&kp N0>;
+      bindings = <&kp N0>, <&kp BACKSPACE>;
 
       #binding-cells = <0>;
       mods = <(MOD_LGUI|MOD_LCTL)>;
@@ -273,10 +267,10 @@
 
     num {
       bindings = <
-        &trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
-        &trans  &kp N1           &kp N2       &kp N3    &kp N4      &kp N5         &kp N6     &kp N7         &kp N8        &kp N9                &cmd_zero              &trans
-        &trans  &trans           &trans       &trans    &trans      &trans         &trans     &trans         &trans        &trans                &trans                 &trans
-                                              &trans    &trans      &trans         &trans     &trans         &trans
+        &trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH      &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
+        &trans  &kp N1           &kp N2       &kp N3        &kp N4      &kp N5         &kp N6     &kp N7         &kp N8        &kp N9                &cmd_zero              &trans
+        &trans  &trans           &trans       &kp K_CANCEL  &trans      &trans         &trans     &trans         &trans        &trans                &trans                 &trans
+                                              &trans        &trans      &trans         &trans     &trans         &trans
       >;
 
       label = "num";
