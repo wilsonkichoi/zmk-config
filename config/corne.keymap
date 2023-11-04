@@ -71,7 +71,6 @@
     num_word_l2 {
       bindings = <&num_word>;
       key-positions = <37 0>;
-      layers = <1>;
     };
   };
 
