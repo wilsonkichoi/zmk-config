@@ -28,8 +28,8 @@
       bindings = <&caps_word>;
     };
 
-    to_base {
-      bindings = <&to 0>;
+    cancel {
+      bindings = <&kp K_CANCEL>;
       key-positions = <38 39>;
     };
 
@@ -44,7 +44,7 @@
     };
 
     lpar {
-      bindings = <&kp RPAR>;
+      bindings = <&kp LPAR>;
       key-positions = <16 15>;
     };
 
@@ -61,6 +61,11 @@
     rbkt {
       bindings = <&kp RBKT>;
       key-positions = <18 19>;
+    };
+
+    tab {
+      bindings = <&kp TAB>;
+      key-positions = <2 3>;
     };
   };
 
