@@ -53,21 +53,6 @@
       key-positions = <19 20>;
     };
 
-    lbkt {
-      bindings = <&kp LBKT>;
-      key-positions = <16 17>;
-    };
-
-    rbkt {
-      bindings = <&kp RBKT>;
-      key-positions = <18 19>;
-    };
-
-    tab {
-      bindings = <&kp TAB>;
-      key-positions = <2 3>;
-    };
-
     num_word_l2 {
       bindings = <&num_word>;
       key-positions = <37 0>;
@@ -248,6 +233,14 @@
       #binding-cells = <0>;
       mods = <(MOD_LGUI)>;
     };
+    gs_rbb: gs_rbb {
+      compatible = "zmk,behavior-mod-morph";
+      label = "GS_RBB";
+      bindings = <&kp LBRC>, <&kp LS(LG(RBKT))>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LGUI)>;
+    };
   };
 
   conditional_layers {
@@ -273,10 +266,10 @@
 
     raise {
       bindings = <
-        &trans   &kp F1        &kp F2                      &scroll_ht SCROLL_UP F3  &kp F4                                    &f5_tab           &kp F6           &kp F7       &kp F8          &kp F9     &kp F10   &trans
-        &trans   &mt LCMD F11  &scroll_ht SCROLL_LEFT F12  &mwh SCROLL_DOWN         &scroll_ht SCROLL_RIGHT LEFT_PARENTHESIS  &gs_rbkt          &gs_lbkt         &tilde_rpar  &kp UNDERSCORE  &kp PLUS   &kp PIPE  &trans
-        &tr_CGQ  &trans        &trans                      &trans                   &trans                                    &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp GRAVE    &kp MINUS       &kp EQUAL  &kp BSLH  &trans
-                                                           &trans                   &trans                                    &trans            &trans           &trans       &trans
+        &trans   &kp F1        &kp F2                      &scroll_ht SCROLL_UP F3  &kp F4                                    &f5_tab     &kp F6           &kp F7       &kp F8          &kp F9     &kp F10   &trans
+        &trans   &mt LCMD F11  &scroll_ht SCROLL_LEFT F12  &mwh SCROLL_DOWN         &scroll_ht SCROLL_RIGHT LEFT_PARENTHESIS  &gs_rbkt    &gs_lbkt         &tilde_rpar  &kp UNDERSCORE  &kp PLUS   &kp PIPE  &trans
+        &tr_CGQ  &trans        &trans                      &trans                   &trans                                    &gs_rbb     &kp RIGHT_BRACE  &kp GRAVE    &kp MINUS       &kp EQUAL  &kp BSLH  &trans
+                                                           &trans                   &trans                                    &trans      &trans           &trans       &trans
       >;
 
       label = "raise";
