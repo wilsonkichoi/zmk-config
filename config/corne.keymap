@@ -14,9 +14,7 @@
 #define FUN 4
 #define SETTING 5
 
-&sk {
-  /delete-property/ ignore-modifiers;
-};
+&sk { /delete-property/ ignore-modifiers; };
 
 / {
   combos {
@@ -42,16 +40,6 @@
       key-positions = <40 35>;
     };
 
-    lpar {
-      bindings = <&kp LPAR>;
-      key-positions = <16 15>;
-    };
-
-    rpar {
-      bindings = <&kp RPAR>;
-      key-positions = <19 20>;
-    };
-
     num_word_l2 {
       bindings = <&num_word>;
       key-positions = <37 0>;
@@ -72,6 +60,7 @@
         , <&kp LSHFT>
         ;
     };
+
     as: autoshift {
       compatible = "zmk,behavior-macro-one-param";
       #binding-cells = <1>;
@@ -95,6 +84,7 @@
 
       tapping-term-ms = <190>;
     };
+
     hml: hml {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -108,6 +98,7 @@
       require-prior-idle-ms = <150>;
       quick-tap-ms = <175>;
     };
+
     hmr: hmr {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -121,36 +112,42 @@
       flavor = "balanced";
       hold-trigger-on-release;
     };
+
     capdance: capdance {
       compatible = "zmk,behavior-tap-dance";
       label = "CAPDANCE";
       #binding-cells = <0>;
       bindings = <&caps_word>, <&kp CAPS>;
     };
+
     cmd_alt: cmd_alt {
       compatible = "zmk,behavior-tap-dance";
       label = "CMD_ALT";
       #binding-cells = <0>;
       bindings = <&sk LCMD>, <&sk LALT>, <&sk LA(LEFT_GUI)>;
     };
+
     CS4_CGQ: CS4_CGQ {
       compatible = "zmk,behavior-tap-dance";
       label = "CS4_CGQ";
       #binding-cells = <0>;
       bindings = <&kp LS(LG(N4))>, <&kp LC(LG(Q))>;
     };
+
     fun_lalt_tp: fun_lalt_tp {
       compatible = "zmk,behavior-tap-dance";
       label = "FUN_LALT_TP";
       #binding-cells = <0>;
       bindings = <&sl 4>, <&sk LALT>;
     };
+
     shift_cap_dance: shift_cap_dance {
       compatible = "zmk,behavior-tap-dance";
       label = "SHIFT_CAP_DANCE";
       #binding-cells = <0>;
       bindings = <&sk LEFT_SHIFT>, <&caps_word>;
     };
+
     mwh: behavior_mouse_scroll {
       compatible = "zmk,behavior-mouse-scroll";
       label = "MOUSE_SCROLL";
@@ -159,6 +156,7 @@
       time-to-max-speed-ms = <0>;
       acceleration-exponent = <1>;
     };
+
     scroll_ht: scroll_ht {
       compatible = "zmk,behavior-hold-tap";
       label = "SCROLL_HT";
@@ -168,6 +166,7 @@
       tapping-term-ms = <150>;
       flavor = "tap-preferred";
     };
+
     num_word: behavior_num_word {
       compatible = "zmk,behavior-caps-word";
       label = "NUM_WORD";
@@ -176,6 +175,7 @@
       continue-list = <BACKSPACE DELETE DOT COMMA QUESTION UNDERSCORE PLUS MINUS SLASH ASTERISK LEFT_SHIFT RIGHT_SHIFT EQUAL>;  // adjust as desired
       ignore-numbers;                                // numbers don't deactivate the layer
     };
+
     num_word_kp: num_word_kp {
       compatible = "zmk,behavior-hold-tap";
       label = "NUM_WORD_KP";
@@ -185,12 +185,14 @@
       flavor = "tap-preferred";
       tapping-term-ms = <200>;
     };
+
     alt_cmd: alt_cmd {
       compatible = "zmk,behavior-tap-dance";
       label = "ALT_CMD";
       #binding-cells = <0>;
       bindings = <&sk RIGHT_ALT>, <&sk RCMD>, <&sk RA(RCMD)>;
     };
+
     gs_rbkt: gs_rbkt {
       compatible = "zmk,behavior-mod-morph";
       label = "GS_RBKT";
@@ -199,6 +201,7 @@
       #binding-cells = <0>;
       mods = <(MOD_LGUI)>;
     };
+
     gs_lbkt: gs_lbkt {
       compatible = "zmk,behavior-mod-morph";
       label = "GS_LBKT";
@@ -207,6 +210,7 @@
       #binding-cells = <0>;
       mods = <(MOD_LGUI)>;
     };
+
     f5_tab: f5_tab {
       compatible = "zmk,behavior-mod-morph";
       label = "F5_TAB";
@@ -216,6 +220,7 @@
       mods = <(MOD_LGUI|MOD_RALT|MOD_RGUI)>;
       keep-mods = <(MOD_RGUI)>;
     };
+
     dot_question: dot_question {
       compatible = "zmk,behavior-mod-morph";
       label = "DOT_QUESTION";
@@ -224,6 +229,7 @@
       #binding-cells = <0>;
       mods = <(MOD_LSFT)>;
     };
+
     tilde_rpar: tilde_rpar {
       compatible = "zmk,behavior-mod-morph";
       label = "TILDE_RPAR";
@@ -232,6 +238,7 @@
       #binding-cells = <0>;
       mods = <(MOD_LGUI)>;
     };
+
     gs_rbb: gs_rbb {
       compatible = "zmk,behavior-mod-morph";
       label = "GS_RBB";
@@ -240,6 +247,7 @@
       #binding-cells = <0>;
       mods = <(MOD_LGUI)>;
     };
+
     sk_sl: sk_sl {
       compatible = "zmk,behavior-hold-tap";
       label = "SK_SL";
@@ -277,10 +285,10 @@
 
     raise {
       bindings = <
-        &trans    &kp F1        &kp F2                      &scroll_ht SCROLL_UP F3  &kp F4                                    &f5_tab     &kp F6           &kp F7       &kp F8          &kp F9     &kp F10   &trans
-        &trans    &mt LCMD F11  &scroll_ht SCROLL_LEFT F12  &mwh SCROLL_DOWN         &scroll_ht SCROLL_RIGHT LEFT_PARENTHESIS  &gs_rbkt    &gs_lbkt         &tilde_rpar  &kp UNDERSCORE  &kp PLUS   &kp PIPE  &trans
-        &CS4_CGQ  &trans        &trans                      &trans                   &trans                                    &gs_rbb     &kp RIGHT_BRACE  &kp GRAVE    &kp MINUS       &kp EQUAL  &kp BSLH  &trans
-                                                            &trans                   &trans                                    &trans      &trans           &trans       &trans
+        &trans     &kp F1        &kp F2                      &scroll_ht SCROLL_UP F3  &kp F4                                    &f5_tab     &kp F6           &kp F7       &kp F8          &kp F9     &kp F10   &trans
+        &kp ENTER  &mt LCMD F11  &scroll_ht SCROLL_LEFT F12  &mwh SCROLL_DOWN         &scroll_ht SCROLL_RIGHT LEFT_PARENTHESIS  &gs_rbkt    &gs_lbkt         &tilde_rpar  &kp UNDERSCORE  &kp PLUS   &kp PIPE  &trans
+        &CS4_CGQ   &trans        &trans                      &kp LG(C)                &kp LG(V)                                 &gs_rbb     &kp RIGHT_BRACE  &kp GRAVE    &kp MINUS       &kp EQUAL  &kp BSLH  &trans
+                                                             &trans                   &trans                                    &trans      &trans           &trans       &trans
       >;
 
       label = "raise";
