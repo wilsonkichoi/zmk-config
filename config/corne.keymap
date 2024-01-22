@@ -269,7 +269,7 @@
     compatible = "zmk,conditional-layers";
 
     setting {
-      if-layers = <1 4>;
+      if-layers = <1 2>;
       then-layer = <5>;
     };
   };
