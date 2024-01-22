@@ -299,7 +299,7 @@
 
     lower {
       bindings = <
-        &trans    &trans     &trans            &mwh SCROLL_UP    &trans             &kp TAB      &trans  &trans  &trans  &trans  &trans  &trans
+        &trans    &trans     &mkp LCLK         &mwh SCROLL_UP    &mkp RCLK          &kp TAB      &trans  &trans  &trans  &trans  &trans  &trans
         &trans    &kp LG(A)  &mwh SCROLL_LEFT  &mwh SCROLL_DOWN  &mwh SCROLL_RIGHT  &kp ENTER    &trans  &trans  &trans  &trans  &trans  &trans
         &CS4_CGQ  &kp LC(Z)  &kp LG(X)         &kp LG(C)         &kp LG(V)          &trans       &trans  &trans  &trans  &trans  &trans  &trans
                                                &trans            &kp_to LCMD 0      &trans       &trans  &trans  &trans
