@@ -227,7 +227,7 @@
       bindings = <&mo>, <&kp>;
 
       #binding-cells = <2>;
-      tapping-term-ms = <50>;
+      tapping-term-ms = <25>;
       flavor = "tap-preferred";
     };
   };
@@ -266,7 +266,7 @@
 
     lower {
       bindings = <
-        &trans    &trans     &kp LS(LG(LEFT_BRACKET))  &mwh SCROLL_UP    &kp LS(LG(RIGHT_BRACKET))  &kp LG(TAB)      &trans  &trans  &trans  &trans  &trans  &trans
+        &trans    &trans     &kp LS(LG(LEFT_BRACKET))  &mwh SCROLL_UP    &kp LS(LG(RIGHT_BRACKET))  &kp LG(T)        &trans  &trans  &trans  &trans  &trans  &trans
         &trans    &kp LG(A)  &mwh SCROLL_LEFT          &mwh SCROLL_DOWN  &mwh SCROLL_RIGHT          &kp ENTER        &trans  &trans  &trans  &trans  &trans  &trans
         &CS4_CGQ  &kp LG(Z)  &kp LG(X)                 &kp LG(C)         &kp LG(V)                  &kp BACKSPACE    &trans  &trans  &trans  &trans  &trans  &trans
                                                        &trans            &trans                     &kp_to LCMD 0    &trans  &trans  &trans
