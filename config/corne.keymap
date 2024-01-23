@@ -134,8 +134,8 @@
       label = "MOUSE_SCROLL";
       #binding-cells = <1>;
       delay-ms = <0>;
-      time-to-max-speed-ms = <200>;
-      acceleration-exponent = <10>;
+      time-to-max-speed-ms = <50>;
+      acceleration-exponent = <100>;
     };
 
     scroll_ht: scroll_ht {
@@ -207,18 +207,28 @@
       compatible = "zmk,behavior-tap-dance";
       label = "ENTER_L2";
       #binding-cells = <0>;
-      bindings = <&lt 2 ENTER>, <&kp ENTER>, <&to 2>;
+      bindings = <&fast_lt 2 ENTER>, <&kp ENTER>, <&to 2>;
 
-      tapping-term-ms = <250>;
+      tapping-term-ms = <240>;
     };
 
     enter_l3: enter_l3 {
       compatible = "zmk,behavior-tap-dance";
       label = "ENTER_L3";
       #binding-cells = <0>;
-      bindings = <&lt 3 ENTER>, <&kp ENTER>, <&to 3>;
+      bindings = <&fast_lt 3 ENTER>, <&kp ENTER>, <&to 3>;
 
-      tapping-term-ms = <250>;
+      tapping-term-ms = <210>;
+    };
+
+    fast_lt: fast_lt {
+      compatible = "zmk,behavior-hold-tap";
+      label = "FAST_LT";
+      bindings = <&mo>, <&kp>;
+
+      #binding-cells = <2>;
+      tapping-term-ms = <100>;
+      flavor = "tap-preferred";
     };
   };
 
@@ -256,10 +266,10 @@
 
     lower {
       bindings = <
-        &kp LG(TAB)  &trans     &kp LS(LG(LEFT_BRACKET))  &mwh SCROLL_UP    &kp LS(LG(RIGHT_BRACKET))  &kp LG(TAB)      &trans  &trans  &trans  &trans  &trans  &trans
-        &trans       &kp LG(A)  &mwh SCROLL_LEFT          &mwh SCROLL_DOWN  &mwh SCROLL_RIGHT          &kp ENTER        &trans  &trans  &trans  &trans  &trans  &trans
-        &CS4_CGQ     &kp LG(Z)  &kp LG(X)                 &kp LG(C)         &kp LG(V)                  &kp BACKSPACE    &trans  &trans  &trans  &trans  &trans  &trans
-                                                          &trans            &trans                     &kp_to LCMD 0    &trans  &trans  &trans
+        &trans    &trans     &kp LS(LG(LEFT_BRACKET))  &mwh SCROLL_UP    &kp LS(LG(RIGHT_BRACKET))  &kp LG(T)        &trans  &trans  &trans  &trans  &trans  &trans
+        &trans    &kp LG(A)  &mwh SCROLL_LEFT          &mwh SCROLL_DOWN  &mwh SCROLL_RIGHT          &kp ENTER        &trans  &trans  &trans  &trans  &trans  &trans
+        &CS4_CGQ  &kp LG(Z)  &kp LG(X)                 &kp LG(C)         &kp LG(V)                  &kp BACKSPACE    &trans  &trans  &trans  &trans  &trans  &trans
+                                                       &trans            &trans                     &kp_to LCMD 0    &trans  &trans  &trans
       >;
 
       label = "lower";
