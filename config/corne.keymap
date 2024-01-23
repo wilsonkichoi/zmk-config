@@ -14,8 +14,6 @@
 #define FUN 4
 #define SETTING 5
 
-&sk { /delete-property/ ignore-modifiers; };
-
 / {
   combos {
     compatible = "zmk,combos";
@@ -205,27 +203,13 @@
       hold-trigger-on-release;
     };
 
-    cml: cml {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      label = "CML";
-      bindings = <&kp>, <&kp>;
-
-      tapping-term-ms = <280>;
-      flavor = "balanced";
-      hold-trigger-on-release;
-      require-prior-idle-ms = <150>;
-      quick-tap-ms = <175>;
-      hold-trigger-key-positions = <29 17 5 3 1 0 13 2 14 16 4 15 28 27 26 25 24 12>;
-    };
-
     enter_l2: enter_l2 {
       compatible = "zmk,behavior-tap-dance";
       label = "ENTER_L2";
       #binding-cells = <0>;
       bindings = <&lt 2 ENTER>, <&kp ENTER>, <&to 2>;
 
-      tapping-term-ms = <300>;
+      tapping-term-ms = <250>;
     };
 
     enter_l3: enter_l3 {
@@ -234,7 +218,7 @@
       #binding-cells = <0>;
       bindings = <&lt 3 ENTER>, <&kp ENTER>, <&to 3>;
 
-      tapping-term-ms = <300>;
+      tapping-term-ms = <250>;
     };
   };
 
