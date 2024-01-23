@@ -32,7 +32,7 @@
 
     to_base {
       bindings = <&to 0>;
-      key-positions = <36 41>;
+      key-positions = <38 39>;
     };
   };
 
@@ -299,10 +299,10 @@
 
     lower {
       bindings = <
-        &trans    &trans     &mkp LCLK         &mwh SCROLL_UP    &mkp RCLK          &kp TAB      &trans  &trans  &trans  &trans  &trans  &trans
-        &trans    &kp LG(A)  &mwh SCROLL_LEFT  &mwh SCROLL_DOWN  &mwh SCROLL_RIGHT  &kp ENTER    &trans  &trans  &trans  &trans  &trans  &trans
-        &CS4_CGQ  &kp LC(Z)  &kp LG(X)         &kp LG(C)         &kp LG(V)          &trans       &trans  &trans  &trans  &trans  &trans  &trans
-                                               &trans            &kp_to LCMD 0      &trans       &trans  &trans  &trans
+        &trans    &trans  &trans            &mwh SCROLL_UP            &trans                     &kp TAB          &trans  &trans  &trans  &trans  &trans  &trans
+        &trans    &trans  &mwh SCROLL_LEFT  &mwh SCROLL_LEFT          &mwh SCROLL_RIGHT          &kp ENTER        &trans  &trans  &trans  &trans  &trans  &trans
+        &CS4_CGQ  &trans  &trans            &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &kp BACKSPACE    &trans  &trans  &trans  &trans  &trans  &trans
+                                            &trans                    &kp_to LCMD 0              &trans           &trans  &trans  &trans
       >;
 
       label = "lower";
