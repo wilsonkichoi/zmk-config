@@ -299,10 +299,10 @@
 
     lower {
       bindings = <
-        &trans    &trans  &trans            &mwh SCROLL_UP            &trans                     &kp TAB          &trans  &trans  &trans  &trans  &trans  &trans
-        &trans    &trans  &mwh SCROLL_LEFT  &mwh SCROLL_LEFT          &mwh SCROLL_RIGHT          &kp ENTER        &trans  &trans  &trans  &trans  &trans  &trans
-        &CS4_CGQ  &trans  &trans            &kp LS(LG(LEFT_BRACKET))  &kp LS(LG(RIGHT_BRACKET))  &kp BACKSPACE    &trans  &trans  &trans  &trans  &trans  &trans
-                                            &trans                    &kp_to LCMD 0              &trans           &trans  &trans  &trans
+        &kp LG(TAB)  &trans     &kp LS(LG(LEFT_BRACKET))  &mwh SCROLL_UP    &kp LS(LG(RIGHT_BRACKET))  &kp TAB          &trans  &trans  &trans  &trans  &trans  &trans
+        &trans       &kp LG(A)  &mwh SCROLL_LEFT          &mwh SCROLL_LEFT  &mwh SCROLL_RIGHT          &kp ENTER        &trans  &trans  &trans  &trans  &trans  &trans
+        &CS4_CGQ     &kp LG(Z)  &kp LG(X)                 &kp LG(C)         &kp LG(V)                  &kp BACKSPACE    &trans  &trans  &trans  &trans  &trans  &trans
+                                                          &trans            &kp_to LCMD 0              &trans           &trans  &trans  &trans
       >;
 
       label = "lower";
@@ -321,10 +321,10 @@
 
     fun {
       bindings = <
-        &trans  &kp F1   &kp F2   &kp F3             &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &trans
-        &trans  &kp F11  &kp F12  &trans             &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
-        &trans  &trans   &trans   &trans             &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
-                                  &kp_to LEFT_ALT 0  &trans  &trans    &trans  &trans  &trans
+        &trans  &kp F1   &kp F2   &kp F3             &kp F4  &kp F5    &kp F6  &kp F7             &kp F8        &kp F9  &kp F10  &trans
+        &trans  &kp F11  &kp F12  &trans             &trans  &trans    &trans  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &trans  &trans   &trans
+        &trans  &trans   &trans   &trans             &trans  &trans    &trans  &kp K_MUTE         &trans        &trans  &trans   &trans
+                                  &kp_to LEFT_ALT 0  &trans  &trans    &trans  &trans             &trans
       >;
     };
 
