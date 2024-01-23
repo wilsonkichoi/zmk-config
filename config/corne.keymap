@@ -134,8 +134,8 @@
       label = "MOUSE_SCROLL";
       #binding-cells = <1>;
       delay-ms = <0>;
-      time-to-max-speed-ms = <20>;
-      acceleration-exponent = <1000>;
+      time-to-max-speed-ms = <10>;
+      acceleration-exponent = <500>;
     };
 
     scroll_ht: scroll_ht {
