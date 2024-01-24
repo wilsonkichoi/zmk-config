@@ -324,7 +324,7 @@
     n_f11: n_f11 {
       compatible = "zmk,behavior-mod-morph";
       label = "N_F11";
-      bindings = <&kp S>, <&kp F11>;
+      bindings = <&kp N1>, <&kp F11>;
 
       #binding-cells = <0>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -333,7 +333,7 @@
     n_f12: n_f12 {
       compatible = "zmk,behavior-mod-morph";
       label = "N_F12";
-      bindings = <&kp A>, <&kp F12>;
+      bindings = <&kp N2>, <&kp F12>;
 
       #binding-cells = <0>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
