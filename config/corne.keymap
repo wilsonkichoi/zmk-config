@@ -230,6 +230,114 @@
       tapping-term-ms = <25>;
       flavor = "tap-preferred";
     };
+
+    n_f1: n_f1 {
+      compatible = "zmk,behavior-mod-morph";
+      label = "N_F1";
+      bindings = <&kp EXCLAMATION>, <&kp F1>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n_f2: n_f2 {
+      compatible = "zmk,behavior-mod-morph";
+      label = "N_F2";
+      bindings = <&kp AT_SIGN>, <&kp F2>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n_f3: n_f3 {
+      compatible = "zmk,behavior-mod-morph";
+      label = "N_F3";
+      bindings = <&kp HASH>, <&kp F3>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n_f4: n_f4 {
+      compatible = "zmk,behavior-mod-morph";
+      label = "N_F4";
+      bindings = <&kp DOLLAR>, <&kp F4>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n_f5: n_f5 {
+      compatible = "zmk,behavior-mod-morph";
+      label = "N_F5";
+      bindings = <&kp PERCENT>, <&kp F5>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n_f6: n_f6 {
+      compatible = "zmk,behavior-mod-morph";
+      label = "N_F6";
+      bindings = <&kp CARET>, <&kp F6>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n_f7: n_f7 {
+      compatible = "zmk,behavior-mod-morph";
+      label = "N_F7";
+      bindings = <&kp AMPERSAND>, <&kp F7>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n_f8: n_f8 {
+      compatible = "zmk,behavior-mod-morph";
+      label = "N_F8";
+      bindings = <&kp ASTERISK>, <&kp F8>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n_f9: n_f9 {
+      compatible = "zmk,behavior-mod-morph";
+      label = "N_F9";
+      bindings = <&kp LEFT_PARENTHESIS>, <&kp F9>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n_f10: n_f10 {
+      compatible = "zmk,behavior-mod-morph";
+      label = "N_F10";
+      bindings = <&kp RIGHT_PARENTHESIS>, <&kp F10>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n_f11: n_f11 {
+      compatible = "zmk,behavior-mod-morph";
+      label = "N_F11";
+      bindings = <&kp S>, <&kp F11>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    n_f12: n_f12 {
+      compatible = "zmk,behavior-mod-morph";
+      label = "N_F12";
+      bindings = <&kp A>, <&kp F12>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
   };
 
   conditional_layers {
@@ -277,10 +385,10 @@
 
     num {
       bindings = <
-        &trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR        &kp PERCENT       &kp CARET        &kp AMPERSAND      &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
-        &trans  &kp N1           &kp N2       &kp N3    &kp N4            &kp N5            &kp N6           &kp N7             &kp N8        &kp N9                &kp N0                 &trans
-        &trans  &trans           &trans       &trans    &kp LEFT_BRACKET  &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &trans        &trans                &trans                 &trans
-                                              &trans    &trans            &trans            &to 0            &trans             &trans
+        &trans  &n_f1   &n_f2   &n_f3                 &n_f4             &n_f5             &n_f6            &n_f7              &n_f8                  &n_f9   &n_f10  &trans
+        &trans  &n_f11  &n_f12  &kp N3                &kp N4            &kp N5            &kp N6           &kp N7             &kp N8                 &kp N9  &kp N0  &trans
+        &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &kp LEFT_BRACKET  &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp RIGHT_PARENTHESIS  &trans  &trans  &trans
+                                &trans                &trans            &trans            &to 0
       >;
 
       label = "num";
