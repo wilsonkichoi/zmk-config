@@ -12,16 +12,35 @@
 #define BASE 0
 #define RAISE 1
 #define LOWER 2
-#define FUN 3
-#define SETTING 4
+#define SETTING 3
 
 / {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
+    conditional_layers { compatible = "zmk,conditional-layers"; };
+
+    behaviors {
+        msc_kp: msc_kp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MSC_KP";
+            bindings = <&msc>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
 
         setting {
-            if-layers = <1 2>;
-            then-layer = <4>;
+            bindings = <&mo 3>;
+            key-positions = <39 11>;
+        };
+
+        cap_word {
+            bindings = <&caps_word>;
+            key-positions = <17 18>;
         };
     };
 
@@ -44,7 +63,7 @@
 &trans  &kp N1           &kp N2        &kp N3                &kp N4                 &kp N5                  &kp N6     &kp N7     &kp N8     &kp N9     &kp N0         &trans
 &trans  &kp EXCLAMATION  &kp QUESTION  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans                  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp BACKSPACE  &trans
 &trans  &trans           &trans        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans                  &kp GRAVE  &kp EQUAL  &kp MINUS  &trans     &kp BSLH       &trans
-                                       &trans                &mo 3                  &mt LEFT_SHIFT SPACE    &trans     &trans     &trans
+                                       &trans                &trans                 &mt LEFT_SHIFT SPACE    &trans     &trans     &trans
             >;
 
             label = "raise";
@@ -52,24 +71,13 @@
 
         lower {
             bindings = <
-&kp LC(LG(Q))         &trans                &kp LS(LG(LEFT_BRACKET))  &msc SCRL_UP       &kp LS(LG(RIGHT_BRACKET))  &trans           &trans  &trans  &trans  &trans  &trans  &trans
-&trans                &kp LG(LEFT_BRACKET)  &msc SCRL_LEFT            &msc SCRL_DOWN     &msc SCRL_RIGHT            &kp ENTER        &trans  &trans  &trans  &trans  &trans  &trans
-&kp LS(LG(NUMBER_4))  &trans                &kp C_MUTE                &kp C_VOLUME_DOWN  &kp C_VOLUME_UP            &kp LC(ENTER)    &trans  &trans  &trans  &trans  &trans  &trans
-                                                                      &trans             &trans                     &trans           &trans  &trans  &trans
+&kp LC(LG(Q))         &kp F1                &kp F2                                  &msc_kp SCRL_UP F3  &kp F4                                    &kp F5           &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&trans                &kp LG(LEFT_BRACKET)  &msc_kp SCRL_LEFT LS(LG(LEFT_BRACKET))  &msc SCRL_DOWN      &msc_kp SCRL_RIGHT LS(LG(RIGHT_BRACKET))  &kp ENTER        &trans  &trans  &trans  &trans  &trans   &kp F12
+&kp LS(LG(NUMBER_4))  &trans                &kp K_MUTE                              &kp C_VOLUME_DOWN   &kp C_VOL_UP                              &kp LC(ENTER)    &trans  &trans  &trans  &trans  &trans   &trans
+                                                                                    &trans              &trans                                    &trans           &trans  &trans  &trans
             >;
 
             label = "lower";
-        };
-
-        fun {
-            bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &kp F12
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
-            >;
-
-            label = "fun";
         };
 
         setting {
