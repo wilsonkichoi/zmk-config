@@ -69,7 +69,6 @@
       #binding-cells = <2>;
       label = "AUTOSHIFT_HOLD_TAP";
       bindings = <&shift>, <&kp>;
-
       tapping-term-ms = <190>;
     };
 
@@ -92,41 +91,12 @@
       #binding-cells = <2>;
       label = "HMR";
       bindings = <&kp>, <&kp>;
-
       tapping-term-ms = <280>;
       hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
       quick-tap-ms = <175>;
       require-prior-idle-ms = <150>;
       flavor = "balanced";
       hold-trigger-on-release;
-    };
-
-    capdance: capdance {
-      compatible = "zmk,behavior-tap-dance";
-      label = "CAPDANCE";
-      #binding-cells = <0>;
-      bindings = <&caps_word>, <&kp CAPS>;
-    };
-
-    cmd_alt: cmd_alt {
-      compatible = "zmk,behavior-tap-dance";
-      label = "CMD_ALT";
-      #binding-cells = <0>;
-      bindings = <&sk LCMD>, <&sk LALT>, <&sk LA(LEFT_GUI)>;
-    };
-
-    CS4_CGQ: CS4_CGQ {
-      compatible = "zmk,behavior-tap-dance";
-      label = "CS4_CGQ";
-      #binding-cells = <0>;
-      bindings = <&kp LS(LG(N4))>, <&kp LC(LG(Q))>;
-    };
-
-    fun_lalt_tp: fun_lalt_tp {
-      compatible = "zmk,behavior-tap-dance";
-      label = "FUN_LALT_TP";
-      #binding-cells = <0>;
-      bindings = <&sl 3>, <&sk LALT>;
     };
 
     mwh: behavior_mouse_scroll {
@@ -138,16 +108,6 @@
       acceleration-exponent = <500>;
     };
 
-    scroll_ht: scroll_ht {
-      compatible = "zmk,behavior-hold-tap";
-      label = "SCROLL_HT";
-      bindings = <&mwh>, <&kp>;
-
-      #binding-cells = <2>;
-      tapping-term-ms = <150>;
-      flavor = "tap-preferred";
-    };
-
     num_word: behavior_num_word {
       compatible = "zmk,behavior-caps-word";
       label = "NUM_WORD";
@@ -155,188 +115,6 @@
       layers = <NUM>;                                // insert location of numbers layer here
       continue-list = <BACKSPACE DELETE DOT COMMA QUESTION UNDERSCORE PLUS MINUS SLASH ASTERISK LEFT_SHIFT RIGHT_SHIFT EQUAL>;  // adjust as desired
       ignore-numbers;                                // numbers don't deactivate the layer
-    };
-
-    num_word_kp: num_word_kp {
-      compatible = "zmk,behavior-hold-tap";
-      label = "NUM_WORD_KP";
-      bindings = <&num_word>, <&kp>;
-
-      #binding-cells = <2>;
-      flavor = "tap-preferred";
-      tapping-term-ms = <200>;
-    };
-
-    f5_tab: f5_tab {
-      compatible = "zmk,behavior-mod-morph";
-      label = "F5_TAB";
-      bindings = <&kp F5>, <&kp TAB>;
-
-      #binding-cells = <0>;
-      mods = <(MOD_LGUI|MOD_RALT|MOD_RGUI)>;
-      keep-mods = <(MOD_RGUI)>;
-    };
-
-    sk_sl: sk_sl {
-      compatible = "zmk,behavior-hold-tap";
-      label = "SK_SL";
-      bindings = <&sk>, <&sl>;
-
-      #binding-cells = <2>;
-      tapping-term-ms = <280>;
-      quick-tap-ms = <175>;
-      require-prior-idle-ms = <150>;
-      flavor = "balanced";
-      hold-trigger-on-release;
-    };
-
-    kp_to: kp_to {
-      compatible = "zmk,behavior-hold-tap";
-      label = "KP_TO";
-      bindings = <&kp>, <&to>;
-
-      #binding-cells = <2>;
-      tapping-term-ms = <150>;
-      quick-tap-ms = <(-1)>;
-      require-prior-idle-ms = <0>;
-      flavor = "balanced";
-      hold-trigger-on-release;
-    };
-
-    enter_l2: enter_l2 {
-      compatible = "zmk,behavior-tap-dance";
-      label = "ENTER_L2";
-      #binding-cells = <0>;
-      bindings = <&fast_lt 2 ENTER>, <&kp ENTER>, <&to 2>;
-
-      tapping-term-ms = <280>;
-    };
-
-    enter_l3: enter_l3 {
-      compatible = "zmk,behavior-tap-dance";
-      label = "ENTER_L3";
-      #binding-cells = <0>;
-      bindings = <&fast_lt 0 ENTER>, <&kp ENTER>, <&to 0>;
-
-      tapping-term-ms = <280>;
-    };
-
-    fast_lt: fast_lt {
-      compatible = "zmk,behavior-hold-tap";
-      label = "FAST_LT";
-      bindings = <&mo>, <&kp>;
-
-      #binding-cells = <2>;
-      tapping-term-ms = <200>;
-      flavor = "balanced";
-    };
-
-    n_f1: n_f1 {
-      compatible = "zmk,behavior-mod-morph";
-      label = "N_F1";
-      bindings = <&kp EXCLAMATION>, <&kp F1>;
-
-      #binding-cells = <0>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    n_f2: n_f2 {
-      compatible = "zmk,behavior-mod-morph";
-      label = "N_F2";
-      bindings = <&kp AT_SIGN>, <&kp F2>;
-
-      #binding-cells = <0>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    n_f3: n_f3 {
-      compatible = "zmk,behavior-mod-morph";
-      label = "N_F3";
-      bindings = <&kp HASH>, <&kp F3>;
-
-      #binding-cells = <0>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    n_f4: n_f4 {
-      compatible = "zmk,behavior-mod-morph";
-      label = "N_F4";
-      bindings = <&kp DOLLAR>, <&kp F4>;
-
-      #binding-cells = <0>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    n_f5: n_f5 {
-      compatible = "zmk,behavior-mod-morph";
-      label = "N_F5";
-      bindings = <&kp PERCENT>, <&kp F5>;
-
-      #binding-cells = <0>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    n_f6: n_f6 {
-      compatible = "zmk,behavior-mod-morph";
-      label = "N_F6";
-      bindings = <&kp CARET>, <&kp F6>;
-
-      #binding-cells = <0>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    n_f7: n_f7 {
-      compatible = "zmk,behavior-mod-morph";
-      label = "N_F7";
-      bindings = <&kp AMPERSAND>, <&kp F7>;
-
-      #binding-cells = <0>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    n_f8: n_f8 {
-      compatible = "zmk,behavior-mod-morph";
-      label = "N_F8";
-      bindings = <&kp ASTERISK>, <&kp F8>;
-
-      #binding-cells = <0>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    n_f9: n_f9 {
-      compatible = "zmk,behavior-mod-morph";
-      label = "N_F9";
-      bindings = <&kp LEFT_PARENTHESIS>, <&kp F9>;
-
-      #binding-cells = <0>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    n_f10: n_f10 {
-      compatible = "zmk,behavior-mod-morph";
-      label = "N_F10";
-      bindings = <&kp RIGHT_PARENTHESIS>, <&kp F10>;
-
-      #binding-cells = <0>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    n_f11: n_f11 {
-      compatible = "zmk,behavior-mod-morph";
-      label = "N_F11";
-      bindings = <&kp N1>, <&kp F11>;
-
-      #binding-cells = <0>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-
-    n_f12: n_f12 {
-      compatible = "zmk,behavior-mod-morph";
-      label = "N_F12";
-      bindings = <&kp N2>, <&kp F12>;
-
-      #binding-cells = <0>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
     };
   };
 
@@ -394,10 +172,10 @@
 
     setting {
       bindings = <
-        &bt BT_CLR            &bt BT_SEL 0          &bt BT_SEL 1                       &bt BT_SEL 2                            &bt BT_SEL 3  &bt BT_SEL 4          &trans  &trans  &trans  &trans  &trans  &trans
-         &trans                &trans                &trans                             &trans                                  &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans                &trans                &trans                             &trans                                  &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                                                                                       &trans                                  &trans        &trans          &trans  &trans  &trans
+        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans      &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+        &trans      &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                                                &trans        &trans        &trans          &trans  &trans  &trans
       >;
     };
   };
