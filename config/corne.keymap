@@ -81,8 +81,8 @@
 
         raise {
             bindings = <
-&trans  &kp N1           &kp N2        &kp N3                &kp N4                 &kp N5                  &kp N6     &kp N7     &kp N8     &kp N9     &kp N0         &trans
-&trans  &kp EXCLAMATION  &kp QUESTION  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans                  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp BACKSPACE  &trans
+&trans  &kp N1           &kp N2        &kp N3                &kp N4                 &kp N5                  &kp N6     &kp N7     &kp N8     &kp N9     &kp N0         &kp F11
+&trans  &kp EXCLAMATION  &kp QUESTION  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans                  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp BACKSPACE  &kp F12
 &trans  &trans           &trans        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans                  &kp GRAVE  &kp EQUAL  &kp MINUS  &trans     &kp BSLH       &trans
                                        &trans                &trans                 &mt LEFT_SHIFT SPACE    &trans     &trans     &trans
             >;
@@ -92,10 +92,10 @@
 
         lower {
             bindings = <
-&kp LC(LG(Q))         &kp F1                &f2_prev        &f3_msc_up         &f4_next         &kp F5           &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
-&trans                &kp LG(LEFT_BRACKET)  &msc SCRL_LEFT  &msc SCRL_DOWN     &msc SCRL_RIGHT  &kp ENTER        &trans  &trans  &trans  &trans  &trans   &kp F12
-&kp LS(LG(NUMBER_4))  &trans                &kp K_MUTE      &kp C_VOLUME_DOWN  &kp C_VOL_UP     &kp LC(ENTER)    &trans  &trans  &trans  &trans  &trans   &trans
-                                                            &trans             &trans           &trans           &trans  &trans  &trans
+&kp LC(LG(Q))         &trans                &kp LS(LG(LEFT_BRACKET))  &msc SCRL_UP       &kp LS(LG(RIGHT_BRACKET))  &kp F5           &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&trans                &kp LG(LEFT_BRACKET)  &msc SCRL_LEFT            &msc SCRL_DOWN     &msc SCRL_RIGHT            &kp ENTER        &kp F1  &kp F2  &kp F3  &kp F4  &kp F5   &kp F12
+&kp LS(LG(NUMBER_4))  &trans                &kp K_MUTE                &kp C_VOLUME_DOWN  &kp C_VOL_UP               &kp LC(ENTER)    &trans  &trans  &trans  &trans  &trans   &trans
+                                                                      &trans             &trans                     &trans           &trans  &trans  &trans
             >;
 
             label = "lower";
