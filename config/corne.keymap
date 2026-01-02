@@ -14,7 +14,8 @@
 #define BASE 0
 #define RAISE 1
 #define LOWER 2
-#define SETTING 3
+#define FUN 3
+#define SETTING 4
 
 / {
     conditional_layers { compatible = "zmk,conditional-layers"; };
@@ -23,7 +24,7 @@
         compatible = "zmk,combos";
 
         setting {
-            bindings = <&mo 3>;
+            bindings = <&mo 4>;
             key-positions = <39 11>;
         };
 
@@ -49,10 +50,10 @@
 
         raise {
             bindings = <
-&trans  &kp N1           &kp N2        &kp N3                &kp N4                 &kp N5                  &kp N6     &kp N7     &kp N8     &kp N9     &kp N0         &kp F11
-&trans  &kp EXCLAMATION  &kp QUESTION  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans                  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp BACKSPACE  &kp F12
-&trans  &trans           &trans        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans                  &kp GRAVE  &kp EQUAL  &kp MINUS  &trans     &kp BSLH       &trans
-                                       &trans                &trans                 &mt LEFT_SHIFT SPACE    &trans     &trans     &trans
+&trans  &kp N1           &kp N2        &kp N3                &kp N4                 &kp N5            &kp N6         &kp N7     &kp N8            &kp N9      &kp N0         &kp F11
+&trans  &kp EXCLAMATION  &kp QUESTION  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans            &kp LEFT       &kp DOWN   &kp UP            &kp RIGHT   &kp BACKSPACE  &kp F12
+&trans  &trans           &trans        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans            &kp BACKSLASH  &kp GRAVE  &kp MINUS         &kp PERIOD  &kp EQUAL      &kp RSHFT
+                                       &trans                &trans                 &kp LEFT_SHIFT    &trans         &trans     &kp LG(LEFT_ALT)
             >;
 
             label = "raise";
@@ -60,13 +61,24 @@
 
         lower {
             bindings = <
-&kp LC(LG(Q))         &trans                &kp LS(LG(LEFT_BRACKET))  &msc SCRL_UP       &kp LS(LG(RIGHT_BRACKET))  &kp F5           &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
-&trans                &kp LG(LEFT_BRACKET)  &msc SCRL_LEFT            &msc SCRL_DOWN     &msc SCRL_RIGHT            &kp ENTER        &kp F1  &kp F2  &kp F3  &kp F4  &kp F5   &kp F12
-&kp LS(LG(NUMBER_4))  &trans                &kp K_MUTE                &kp C_VOLUME_DOWN  &kp C_VOL_UP               &kp LC(ENTER)    &trans  &trans  &trans  &trans  &trans   &trans
-                                                                      &trans             &trans                     &trans           &trans  &trans  &trans
+&kp LC(LG(Q))         &trans                &kp LS(LG(LEFT_BRACKET))  &msc SCRL_UP       &kp LS(LG(RIGHT_BRACKET))  &kp F5           &kp LS(Y)      &kp LS(U)  &kp LS(I)      &kp LS(O)         &kp LS(P)     &trans
+&sl 3                 &kp LG(LEFT_BRACKET)  &msc SCRL_LEFT            &msc SCRL_DOWN     &msc SCRL_RIGHT            &kp LS(ENTER)    &kp LS(H)      &kp LS(J)  &kp LS(K)      &kp LS(L)         &kp COLON     &kp DOUBLE_QUOTES
+&kp LS(LG(NUMBER_4))  &trans                &kp K_MUTE                &kp C_VOLUME_DOWN  &kp C_VOL_UP               &kp LG(M)        &kp LS(N)      &kp LS(M)  &kp LESS_THAN  &kp GREATER_THAN  &kp QUESTION  &kp RS(ENTER)
+                                                                      &trans             &trans                     &trans           &kp RS(ENTER)  &trans     &trans
             >;
 
             label = "lower";
+        };
+
+        fun {
+            bindings = <
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+
+            label = "fun";
         };
 
         setting {
